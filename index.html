@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Palabras amigas y enemigas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Palabras amigas y enemigas</h1>
+    <p class="intro">
+      Las <strong>amigas</strong> tienen la misma estructura de vocales y consonantes
+      que tu palabra. Las <strong>enemigas</strong> tienen la estructura invertida.
+    </p>
+
+    <div class="controls">
+      <div class="field">
+        <label for="lista">Lista</label>
+        <select id="lista"></select>
+      </div>
+
+      <div class="field combo">
+        <label for="palabra">Palabra</label>
+        <input id="palabra" type="text" autocomplete="off" autocapitalize="characters"
+               spellcheck="false" role="combobox" aria-expanded="false"
+               aria-controls="sugerencias" aria-autocomplete="list"
+               placeholder="Escribí cualquier palabra">
+        <ul id="sugerencias" role="listbox" hidden></ul>
+      </div>
+
+      <div class="buttons">
+        <button id="btn-amigos" type="button" class="primary">Buscar amigos</button>
+        <button id="btn-enemigos" type="button">Buscar enemigos</button>
+      </div>
+      <div class="buttons listar">
+        <button id="btn-todos-amigos" type="button">Ver todos los amigos</button>
+        <button id="btn-todos-enemigos" type="button">Ver todos los enemigos</button>
+      </div>
+    </div>
+
+    <div id="vista" class="vista" aria-live="polite"></div>
+    <div id="filtro" class="filtro" hidden>
+      <div class="filtro-cab">
+        <span id="filtro-titulo">Cantidad</span>
+        <output id="filtro-valor" for="rango-min rango-max"></output>
+      </div>
+      <div id="rango" class="rango">
+        <div class="pista"></div>
+        <div class="tramo"></div>
+        <input id="rango-min" type="range" min="1" max="1" value="1" aria-label="Mínimo">
+        <input id="rango-max" type="range" min="1" max="1" value="1" aria-label="Máximo">
+      </div>
+      <div class="filtro-orden">
+        <div class="sw-grupo">
+          <button type="button" class="sw-txt" data-sw="freq" data-v="0" tabindex="-1" aria-hidden="true">Alfabético</button>
+          <button type="button" class="sw" id="sw-freq" role="switch" aria-checked="true" aria-label="Ordenar por frecuencia"><span class="perilla"></span></button>
+          <button type="button" class="sw-txt" data-sw="freq" data-v="1" tabindex="-1" aria-hidden="true">Frecuencia</button>
+        </div>
+        <div class="sw-grupo">
+          <button type="button" class="sw-txt" data-sw="desc" data-v="0" tabindex="-1" aria-hidden="true">Ascendente</button>
+          <button type="button" class="sw" id="sw-desc" role="switch" aria-checked="false" aria-label="Orden descendente"><span class="perilla"></span></button>
+          <button type="button" class="sw-txt" data-sw="desc" data-v="1" tabindex="-1" aria-hidden="true">Descendente</button>
+        </div>
+      </div>
+    </div>
+    <section id="resultado" aria-live="polite"></section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

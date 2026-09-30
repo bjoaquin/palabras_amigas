@@ -1,0 +1,9 @@
+[
+  { "file": "animales.txt", "label": "Animales" },
+  { "file": "capitales.txt", "label": "Capitales" },
+  { "file": "colores.txt", "label": "Colores" },
+  { "file": "comidas.txt", "label": "Comidas" },
+  { "file": "elementos.txt", "label": "Elementos" },
+  { "file": "nombres.txt", "label": "Nombres" },
+  { "file": "paises.txt", "label": "Países" }
+]
